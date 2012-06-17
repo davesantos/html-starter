@@ -1,8 +1,10 @@
 @import url(normalize.css);
 
+body {max-width:1050px;min-width:768px;margin:0 auto;}
 
-body {}
 
-.clearfix:before,.clearfix:after {content:"";display:table;}
-.clearfix:after {clear:both;}
-.clearfix {*zoom:1;}
+.clearfix {
+    zoom:1;
+    &:before, &:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
+    &:after { clear: both; }
+}
