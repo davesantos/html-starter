@@ -2,6 +2,15 @@
 
 body {max-width:1050px;min-width:768px;margin:0 auto;}
 
+img {
+	max-width: 100%;
+	height: auto !important;
+}
+
+video {
+	max-width: 100%;
+	height: auto !important;
+}
 
 .clearfix {
     zoom:1;
