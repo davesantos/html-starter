@@ -29,6 +29,7 @@ body {
 	max-width:1280px;
 	margin:0 auto;
 	display:block;
+	line-height:20px;
 
 	@include respond-to(tablet) {
 		max-width:748px;
