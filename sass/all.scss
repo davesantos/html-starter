@@ -1,6 +1,45 @@
 @import url(normalize.css);
 
-body {max-width:1050px;min-width:768px;margin:0 auto;}
+
+@mixin respond-to($media) {
+
+	//Kube Framework Numbers
+
+	@if $media == mobile {
+		//Mobile Portrait
+		@media only screen and (max-width: 767px) { @content; }
+	}
+
+	@else if $media == mobile-landscape {
+		//Mobile Landscape
+		@media only screen and (min-width: 480px) and (max-width: 767px) { @content; }
+	}
+
+	@else if $media == tablet {
+		//Ipad
+		@media only screen and (min-width: 768px) and (max-width: 959px) { @content; }
+	}
+
+}
+
+html {padding:0 20px;}
+
+
+body {
+	max-width:1280px;
+	margin:0 auto;
+	display:block;
+
+	@include respond-to(tablet) {
+		max-width:748px;
+	}
+	@include respond-to(mobile) {
+		max-width:300px;
+	}
+	@include respond-to(mobile-landscape) {
+		max-width: 420px;
+	}
+}
 
 img {
 	max-width: 100%;
@@ -17,3 +56,8 @@ video {
 	&:before, &:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
 	&:after { clear: both; }
 }
+
+
+
+
+
