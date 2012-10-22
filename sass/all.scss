@@ -17,8 +17,30 @@
 
 	@else if $media == tablet {
 		//Ipad
-		@media only screen and (min-width: 768px) and (max-width: 959px) { @content; }
+		@media only screen and (min-width: 641px) and (max-width: 960px) { @content; }
 	}
+
+	@else if $media == large-screen {
+
+		@media only screen and (min-width: 961px) and (max-width:1280px) { @content; }
+
+
+	}
+
+	// @media orientationlandscape and min-width321px and max-width480px
+	// @media max-width640px
+	// @media min-width641px and max-width960px
+	// @media only screen and device-width768px
+	// @media min-width961px and max-width1280px {
+
+	// @media min-width1281px and max-width1600px
+	// @media min-width1601px and max-width1920px
+	// @media min-width1920px and max-width2240px
+	// @media min-width2241px and max-width2560px
+	// @media min-width2561px
+
+	// @media screen and -webkit-min-device-pixel-ratio0 {
+	// @media screen and -webkit-min-device-pixel-ratio0 {
 
 }
 
@@ -26,19 +48,22 @@ html {padding:0 20px;}
 
 
 body {
-	max-width:1280px;
+	width:1280px;
 	margin:0 auto;
 	display:block;
 	line-height:20px;
 
-	@include respond-to(tablet) {
-		max-width:748px;
-	}
 	@include respond-to(mobile) {
-		max-width:300px;
+		width:300px;
 	}
 	@include respond-to(mobile-landscape) {
-		max-width: 420px;
+		width: 400px;
+	}
+	@include respond-to(tablet) {
+		width:780px;
+	}
+	@include respond-to(large-screen) {
+		width:940px;
 	}
 }
 
