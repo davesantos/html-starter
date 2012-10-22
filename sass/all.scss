@@ -1,69 +1,49 @@
 @import url(normalize.css);
 
-
 @mixin respond-to($media) {
 
-	//Kube Framework Numbers
-
-	@if $media == mobile {
-		//Mobile Portrait
-		@media only screen and (max-width: 767px) { @content; }
+	@if $media == mobile-landscape {
+		//Mobile Landscape
+		@media only screen and (orientation:landscape) and (min-width: 320px) and (max-width: 480px) { @content; }
 	}
 
-	@else if $media == mobile-landscape {
-		//Mobile Landscape
-		@media only screen and (min-width: 480px) and (max-width: 767px) { @content; }
+	@else if $media == mobile {
+		@media only screen and (max-width: 639px) { @content; }
 	}
 
 	@else if $media == tablet {
 		//Ipad
-		@media only screen and (min-width: 641px) and (max-width: 960px) { @content; }
+		@media only screen and (min-width: 640px) and (max-width: 959px) { @content; }
 	}
 
 	@else if $media == large-screen {
 
-		@media only screen and (min-width: 961px) and (max-width:1280px) { @content; }
-
+		@media only screen and (min-width: 960px) and (max-width:1279px) { @content; }
 
 	}
+	@else if $media == jumbo-screen {
 
-	// @media orientationlandscape and min-width321px and max-width480px
-	// @media max-width640px
-	// @media min-width641px and max-width960px
-	// @media only screen and device-width768px
-	// @media min-width961px and max-width1280px {
-
-	// @media min-width1281px and max-width1600px
-	// @media min-width1601px and max-width1920px
-	// @media min-width1920px and max-width2240px
-	// @media min-width2241px and max-width2560px
-	// @media min-width2561px
-
-	// @media screen and -webkit-min-device-pixel-ratio0 {
-	// @media screen and -webkit-min-device-pixel-ratio0 {
+		@media only screen and (min-width: 1280px) { @content; }
+	}
 
 }
 
-html {padding:0 20px;}
-
+html {padding:0 40px;}
 
 body {
-	width:1280px;
+	max-width:1280px;
 	margin:0 auto;
 	display:block;
 	line-height:20px;
 
 	@include respond-to(mobile) {
-		width:300px;
-	}
-	@include respond-to(mobile-landscape) {
-		width: 400px;
+		max-width:300px;
 	}
 	@include respond-to(tablet) {
-		width:780px;
+		max-width:620px;
 	}
 	@include respond-to(large-screen) {
-		width:940px;
+		max-width:1020px;
 	}
 }
 
