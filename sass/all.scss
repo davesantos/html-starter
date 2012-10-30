@@ -16,19 +16,19 @@
 		@media only screen and (min-width: 640px) and (max-width: 959px) { @content; }
 	}
 
-	@else if $media == large-screen {
+	@else if $media == medium-screen {
 
 		@media only screen and (min-width: 960px) and (max-width:1279px) { @content; }
 
 	}
-	@else if $media == jumbo-screen {
+	@else if $media == large-screen {
 
 		@media only screen and (min-width: 1280px) { @content; }
 	}
 
 }
 
-html {padding:0 40px;}
+html {padding:0 20px;}
 
 body {
 	width:1280px;
@@ -37,12 +37,13 @@ body {
 	line-height:20px;
 
 	@include respond-to(mobile) {
-		width:300px;
+		width:280px;
 	}
+
 	@include respond-to(tablet) {
 		width:620px;
 	}
-	@include respond-to(large-screen) {
+	@include respond-to(medium-screen) {
 		width:940px;
 	}
 }
