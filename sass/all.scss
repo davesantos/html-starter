@@ -31,19 +31,19 @@
 html {padding:0 40px;}
 
 body {
-	max-width:1280px;
+	width:1280px;
 	margin:0 auto;
 	display:block;
 	line-height:20px;
 
 	@include respond-to(mobile) {
-		max-width:300px;
+		width:300px;
 	}
 	@include respond-to(tablet) {
-		max-width:620px;
+		width:620px;
 	}
 	@include respond-to(large-screen) {
-		max-width:1020px;
+		width:940px;
 	}
 }
 
