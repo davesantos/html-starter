@@ -1,0 +1,35 @@
+@import url(normalize.css);
+body {
+  *zoom: 1;
+  max-width: 1322px;
+  _width: 1322px;
+  padding-left: 22px;
+  padding-right: 22px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5em;
+  font-size: 12pt;
+}
+body:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+img, video, object, embed {
+  max-width: 100%;
+  height: auto !important;
+}
+
+.clearfix {
+  zoom: 1;
+}
+.clearfix:before, .clearfix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+.clearfix:after {
+  clear: both;
+}
