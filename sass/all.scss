@@ -8,24 +8,18 @@ $gutter-width   : 22px;            // 1em gutters between columns
 $grid-padding   : $gutter-width;  // grid-padding equal to gutters
 
 $leading:		1.5em;
-$textcolor:		#fff;
 
 body {
-
 	@include container;
-
+	line-height:$leading;
+	font-size:12pt;
 }
 
 a {
 
 }
 
-img {
-	max-width: 100%;
-	height: auto !important;
-}
-
-video {
+img, video, object, embed {
 	max-width: 100%;
 	height: auto !important;
 }
