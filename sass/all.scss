@@ -9,14 +9,18 @@ body {
 	line-height:20px;
 }
 
-img {
+img, video {
 	max-width: 100%;
 	height: auto !important;
 }
 
-video {
-	max-width: 100%;
-	height: auto !important;
+.offscreen {
+	position:absolute;
+	left:-10000px;
+	top:auto;
+	width:1px;
+	height:1px;
+	overflow:hidden;
 }
 
 .clearfix {

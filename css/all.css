@@ -1,35 +1,31 @@
 @import url(normalize.css);
-body {
-  *zoom: 1;
-  max-width: 1322px;
-  _width: 1322px;
-  padding-left: 22px;
-  padding-right: 22px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.5em;
-  font-size: 12pt;
-}
-body:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+html {
+  padding: 0 20px; }
 
-img, video, object, embed {
+body {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: block;
+  line-height: 20px; }
+
+img, video {
   max-width: 100%;
-  height: auto !important;
-}
+  height: auto !important; }
+
+.offscreen {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden; }
 
 .clearfix {
-  zoom: 1;
-}
+  zoom: 1; }
 .clearfix:before, .clearfix:after {
   content: "\0020";
   display: block;
   height: 0;
-  overflow: hidden;
-}
+  overflow: hidden; }
 .clearfix:after {
-  clear: both;
-}
+  clear: both; }
