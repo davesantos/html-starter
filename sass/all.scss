@@ -1,17 +1,22 @@
 @import "base";
 
 //1322 Grid System
-$total-columns  : 12;             // a 12-column grid
-$column-width   : 90px;            // each column is 4em wide
-$gutter-width   : 22px;            // 1em gutters between columns
-$grid-padding   : $gutter-width;  // grid-padding equal to gutters
+// $total-columns  : 12;             // a 12-column grid
+// $column-width   : 90px;            // each column is 4em wide
+// $gutter-width   : 22px;            // 1em gutters between columns
 
-$leading:		1.5em;
+$susy: (
+  columns: 12,
+  gutters: 1/4,
+  math: fluid,
+  output: float,
+  gutter-position: inside,
+);
 
 body {
-	@include container;
-	line-height:$leading;
+	 @include container(12);
 	font-size:12pt;
+	line-height:1.5em;
 }
 
 a {
