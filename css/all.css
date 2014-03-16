@@ -1,18 +1,14 @@
 @import url(normalize.css);
 body {
-  *zoom: 1;
-  max-width: 1322px;
-  _width: 1322px;
-  padding-left: 22px;
-  padding-right: 22px;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  line-height: 1.5em;
   font-size: 12pt;
+  line-height: 1.5em;
 }
-body:after {
-  content: "";
-  display: table;
+body::after {
+  content: " ";
+  display: block;
   clear: both;
 }
 

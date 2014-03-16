@@ -6,11 +6,11 @@
 // $gutter-width   : 22px;            // 1em gutters between columns
 
 $susy: (
-  columns: 12,
-  gutters: 1/4,
-  math: fluid,
-  output: float,
-  gutter-position: inside,
+	columns: 12,
+	gutters: 1/4,
+	math: fluid,
+	output: float,
+	gutter-position: inside,
 );
 
 body {
@@ -19,9 +19,7 @@ body {
 	line-height:1.5em;
 }
 
-a {
-
-}
+a {}
 
 img, video, object, embed {
 	max-width: 100%;
@@ -34,23 +32,15 @@ img, video, object, embed {
 	&:after { clear: both; }
 }
 
-
 // Tablet
-
-@media only screen and (max-width: 1023px) {
-
+ @media only screen and (max-width: 1023px) {
 	body {
 	}
-
 }
-
 
 // Mobile
 
 @media handheld, only screen and (max-width: 767px) {
-
 	body {
 	}
-
-
 }
