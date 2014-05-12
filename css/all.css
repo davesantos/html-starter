@@ -1,9 +1,10 @@
 @import url(normalize.css);
 body {
-  max-width: 100%;
+  max-width: 1322px;
   margin-left: auto;
   margin-right: auto;
-  font-size: 12pt;
+  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.5em;
 }
 body::after {
@@ -15,17 +16,4 @@ body::after {
 img, video, object, embed {
   max-width: 100%;
   height: auto !important;
-}
-
-.clearfix {
-  zoom: 1;
-}
-.clearfix:before, .clearfix:after {
-  content: "\0020";
-  display: block;
-  height: 0;
-  overflow: hidden;
-}
-.clearfix:after {
-  clear: both;
 }
