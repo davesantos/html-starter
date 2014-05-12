@@ -5,29 +5,53 @@ $total-columns  : 12;             // a 12-column grid
 $column-width   : 90px;            // each column is 4em wide
 $gutter-width   : 22px;            // 1em gutters between columns
 
+$leading: 1.6em;
+@function spacing($multiple) {
+
+	@return $leading * $multiple;
+
+}
+
 $susy: (
 	columns: $total-columns,
 	gutters: $gutter-width / $column-width,
 	column-width: $column-width,
 );
 
-body {
-	 @include container(12);
-	font-size:12pt;
-	line-height:1.5em;
+@mixin clearfix {
+
+    &:before, &:after{
+        content: " ";
+        display: table;
+    }
+
+    &:after{
+        clear: both;
+    }
+
+    *zoom: 1;
 }
 
-a {}
+@function calculateRem ($size) {
+      $remSize: $size / 16px;
+      @return $remSize * 1rem;
+}
 
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+
+
+body {
+	@include container;
+	@include font-size(16px);
+	line-height:1.5em;
+}
 img, video, object, embed {
 	max-width: 100%;
 	height: auto !important;
-}
-
-.clearfix {
-	zoom:1;
-	&:before, &:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
-	&:after { clear: both; }
 }
 
 // Tablet
