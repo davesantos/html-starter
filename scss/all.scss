@@ -6,11 +6,7 @@ $column-width   : 90px;            // each column is 4em wide
 $gutter-width   : 22px;            // 1em gutters between columns
 
 $leading: 1.6em;
-@function spacing($multiple) {
 
-	@return $leading * $multiple;
-
-}
 
 $susy: (
 	columns: $total-columns,

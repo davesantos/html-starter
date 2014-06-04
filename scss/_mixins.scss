@@ -12,6 +12,9 @@
     *zoom: 1;
 }
 
+
+// Typography
+
 @function calculateRem ($size) {
       $remSize: $size / 16px;
       @return $remSize * 1rem;
@@ -20,4 +23,11 @@
 @mixin font-size($size) {
   font-size: $size;
   font-size: calculateRem($size);
+}
+
+
+@function spacing($multiple) {
+
+  @return $leading * $multiple;
+
 }
