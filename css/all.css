@@ -3,11 +3,11 @@ body {
   max-width: 1322px;
   margin-left: auto;
   margin-right: auto;
-  font-size: 16px;
-  font-size: 1rem;
-  line-height: 1.5em;
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.6em;
 }
-body::after {
+body:after {
   content: " ";
   display: block;
   clear: both;

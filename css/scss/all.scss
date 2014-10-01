@@ -18,8 +18,8 @@ $susy: (
 
 body {
 	@include container;
-	@include font-size(16px);
-	line-height:1.5em;
+	@include font-size(18px);
+	line-height:$leading;
 }
 img, video, object, embed {
 	max-width: 100%;
@@ -27,14 +27,7 @@ img, video, object, embed {
 }
 
 // Tablet
- @media only screen and (max-width: 1023px) {
-	body {
-	}
-}
-
-// Mobile
-
-@media handheld, only screen and (max-width: 767px) {
-	body {
-	}
-}
+@media only screen and (min-width: 768px) {}
+//Desktop
+@media only screen and (min-width: 1030px) {}
+@media only screen and (min-width: 1240px) {}
