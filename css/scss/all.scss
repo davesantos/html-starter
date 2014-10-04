@@ -1,12 +1,14 @@
 @import "base";
 
+//Compass Typography
+$base-font-size: 20px;
+$base-line-height: 36px;
+$rhythm-unit: rem;
+
 //1322 Grid System
 $total-columns  : 12;             // a 12-column grid
 $column-width   : 90px;            // each column is 4em wide
 $gutter-width   : 22px;            // 1em gutters between columns
-
-$leading: 1.6em;
-
 
 $susy: (
 	columns: $total-columns,
@@ -16,18 +18,21 @@ $susy: (
 
 @import "mixins";
 
+@include establish-baseline;
+
 body {
 	@include container;
-	@include font-size(18px);
-	line-height:$leading;
+
 }
+
 img, video, object, embed {
 	max-width: 100%;
 	height: auto !important;
 }
 
+p {}
+
 // Tablet
 @media only screen and (min-width: 768px) {}
-//Desktop
 @media only screen and (min-width: 1030px) {}
 @media only screen and (min-width: 1240px) {}

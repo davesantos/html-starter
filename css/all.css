@@ -1,11 +1,14 @@
 @import url(normalize.css);
+html {
+  font-size: 125%;
+  line-height: 1.8em;
+}
+
 body {
   max-width: 1322px;
+  max-width: 66.1rem;
   margin-left: auto;
   margin-right: auto;
-  font-size: 18px;
-  font-size: 1.125rem;
-  line-height: 1.6em;
 }
 body:after {
   content: " ";
