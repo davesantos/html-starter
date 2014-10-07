@@ -1,0 +1,15 @@
+@import "base";
+@import "mixins";
+@include establish-baseline;
+
+body {}
+
+img, video, object, embed {
+	max-width: 100%;
+	height: auto !important;
+}
+
+// Tablet
+@media only screen and (min-width: 768px) {}
+@media only screen and (min-width: 1030px) {}
+@media only screen and (min-width: 1240px) {}
