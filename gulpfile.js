@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
 	jade = require('gulp-jade')
 	compass = require('gulp-compass')
+	newer = require('gulp-newer')
 	livereload = require('gulp-livereload')
 
 
@@ -19,11 +20,22 @@ gulp.task('compass', function(){
 			require: ['susy'] }))
 		.on('error', errorHandler)
 		.pipe(gulp.dest('./src/css'))
+		.pipe(livereload());
 });
 
 gulp.task('jade', function(){
-
+	gulp.src('./src/*.jade')
+		.pipe(jade())
+		.pipe(gulp.dest('./src'))
+		.pipe(livereload());
 })
 
-gulp.task('default', ['compass']);
+gulp.task('watch', function(){
+	var server = livereload();
+	gulp.watch('./src/_sass/**/*', ['compass']);
+	gulp.watch('./src/css/*').on('change', livereload.changed);
+	gulp.watch('./src/*.jade', ['jade']);
+})
+
+gulp.task('default', ['compass', 'watch']);
 
