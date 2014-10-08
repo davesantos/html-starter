@@ -1,8 +1,9 @@
 var gulp = require('gulp'),
-	jade = require('gulp-jade')
-	compass = require('gulp-compass')
-	newer = require('gulp-newer')
-	livereload = require('gulp-livereload')
+	jade = require('gulp-jade'),
+	compass = require('gulp-compass'),
+	newer = require('gulp-newer'),
+	prettify = require('gulp-prettify'),
+	livereload = require('gulp-livereload');
 
 
 function errorHandler(error) {
@@ -29,6 +30,19 @@ gulp.task('jade', function(){
 		.pipe(gulp.dest('./src'))
 		.pipe(livereload());
 })
+
+gulp.task('indent', function(){
+	gulp.src('src/*.html')
+		.pipe(prettify({
+			indent_inner_html: true,
+			indent_with_tabs: true,
+			indent_char:"	",
+			indent_size: 1,
+			preserve_newlines: false
+		}))
+		.pipe(gulp.dest('src'));
+});
+
 
 gulp.task('watch', function(){
 	var server = livereload();
