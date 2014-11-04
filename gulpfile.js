@@ -26,7 +26,9 @@ gulp.task('compass', function(){
 
 gulp.task('jade', function(){
 	gulp.src('./src/*.jade')
-		.pipe(jade())
+		.pipe(jade({
+			pretty: true
+		}))
 		.pipe(gulp.dest('./src'))
 		.pipe(livereload());
 })
