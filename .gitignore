@@ -1,7 +1,7 @@
 *.DS_Store
-*.sass-cache
-*.json
 *.css
+*.json
+*.sass-cache
 bower_components
 node_modules
 src/index.html

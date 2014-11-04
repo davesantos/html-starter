@@ -27,7 +27,6 @@
 
 
 @function spacing($multiple) {
-
   @return $leading * $multiple;
 
 }
