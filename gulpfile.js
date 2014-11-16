@@ -35,7 +35,7 @@ gulp.task('jade', function(){
 		}))
 		.pipe(gulp.dest('.'))
 		.pipe(livereload());
-		gutil.log(gutil.colors.green('jade reloaded'));
+	gutil.log(gutil.colors.green('jade reloaded'));
 })
 
 gulp.task('indent', function(){
