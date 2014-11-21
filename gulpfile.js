@@ -52,7 +52,8 @@ gulp.task('indent', function(){
 
 
 gulp.task('watch', function(){
-	var server = livereload();
+	// var server = livereload();
+	livereload.listen();
 	gulp.watch('./_sass/**/*', ['compass']);
 	gulp.watch('./*.jade', ['jade']);
 	gulp.watch(['./js/*']).on('change', livereload.changed );
