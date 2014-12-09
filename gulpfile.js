@@ -7,6 +7,11 @@ var gulp = require('gulp'),
 	newer = require('gulp-newer'),
 	prettify = require('gulp-prettify');
 
+var paths = {
+  sass: '_sass',
+  css: 'css'
+};
+
 function errorHandler(error) {
 	console.error(String(error));
 	this.emit('end');
@@ -15,15 +20,15 @@ function errorHandler(error) {
 
 // Compass compile and livereload
 gulp.task('compass', function(){
-	return gulp.src('./_sass/*')
+	return gulp.src(paths.sass + '/*.{sass,scss}')
 		.pipe(changed('css', {extension: '.css'}))
 		.pipe(compass({
 			config_file: 'config.rb',
-			css: './css',
-			sass: '_sass', //Must not have .
+			css: paths.css,
+			sass: paths.sass, //Must not have .
 			require: ['susy'] }))
 		.on('error', errorHandler)
-		.pipe(gulp.dest('./css'))
+		.pipe(gulp.dest(paths.sass))
 		.pipe(livereload());
 });
 
@@ -54,7 +59,7 @@ gulp.task('indent', function(){
 gulp.task('watch', function(){
 	// var server = livereload();
 	livereload.listen();
-	gulp.watch('./_sass/**/*', ['compass']);
+	gulp.watch( paths.sass + '/**/*.{sass,scss}', ['compass']);
 	gulp.watch('./*.jade', ['jade']);
 	gulp.watch(['./js/*']).on('change', livereload.changed );
 })
