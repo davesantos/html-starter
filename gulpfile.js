@@ -4,7 +4,6 @@ var gulp = require('gulp'),
 	gutil = require('gulp-util'),
 	jade = require('gulp-jade'),
 	livereload = require('gulp-livereload'),
-	newer = require('gulp-newer'),
 	prettify = require('gulp-prettify');
 
 var paths = {
@@ -57,7 +56,6 @@ gulp.task('indent', function(){
 
 
 gulp.task('watch', function(){
-	// var server = livereload();
 	livereload.listen();
 	gulp.watch( paths.sass + '/**/*.{sass,scss}', ['compass']);
 	gulp.watch('./*.jade', ['jade']);
