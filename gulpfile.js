@@ -27,7 +27,7 @@ gulp.task('compass', function(){
 			sass: paths.sass, //Must not have .
 			require: ['susy'] }))
 		.on('error', errorHandler)
-		.pipe(gulp.dest(paths.sass))
+		.pipe(gulp.dest(paths.css))
 		.pipe(livereload());
 });
 
