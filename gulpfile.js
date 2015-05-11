@@ -19,7 +19,6 @@ function errorHandler(error) {
 
 // Compass compile and livereload
 gulp.task('compass', function(){
-	gutil.log(gutil.colors.yellow('live reloaded'));
 	return gulp.src(paths.sass + '/*.{sass,scss}')
 		.pipe(changed('css', {extension: '.css'}))
 		.pipe(compass({
@@ -41,7 +40,6 @@ gulp.task('jade', function(){
 		}))
 		.pipe(gulp.dest('.'))
 		.pipe(livereload());
-	gutil.log(gutil.colors.green('jade reloaded'));
 })
 
 gulp.task('indent', function(){
