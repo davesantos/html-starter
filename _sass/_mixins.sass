@@ -1,0 +1,81 @@
+//================================
+// Placeholders
+//================================
+
+%clearfix
+  *zoom: 1
+  &:before, &:after
+    content: " "
+    display: table
+  &:after
+    clear: both
+
+//==============================
+// Typography
+//==============================
+// @function rem-calc($px, $base-val: $base-px-default)
+//   @if not unitless($px)
+//     $px: strip-units($px)
+//   @if not unitless($base-val)
+//     $base-val: strip-units($base-val)
+//   @return $px / $base-val * 1rem
+
+
+//==============================
+// Functions
+//==============================
+
+@function rem-calc($size)
+  $remSize: $size / 16px
+  @return $remSize * 1rem
+
+@function rhythm($multiple)
+  @if not variable-exist($leading)
+    $leading: 1.6em
+  @return $leading * $multiple
+
+//================================
+// Mixins
+//================================
+
+=font-size($size)
+  font-size: $size
+  font-size: rem-calc($size)
+
+=strip-list
+  margin: 0
+  padding: 0
+  list-style: none
+
+=stage($bgColor)
+  @if $bgColor == null
+    $bgColor: transparent
+    background-color: $bgColor
+  @else
+    background-color: $bgColor
+  background-size: cover
+  height: 100vh
+  width: 100vw
+
+
+  //Effects
+
+=subtle-sep($dir, $width, $color)
+  $gradient: left
+  position: relative
+  &:before
+    position: absolute
+    content: ""
+    #{$dir}: 0
+    @if $dir == bottom or $dir == top
+      display: block
+      height: $width
+      width: 100%
+      left: 0
+    @else
+      top: 0
+      width: $width
+      height: 100%
+      $gradient: top
+    background: linear-gradient($gradient, transparent, $color, transparent)
+
