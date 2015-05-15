@@ -1,4 +1,3 @@
-@import base
 @import mixins
 
 body
@@ -7,9 +6,7 @@ a
   text-decoration: none
 
 nav ul
-  padding: 0
-  margin: 0
-  list-style: none
+  +strip-list
 
 img, video, object, embed
   max-width: 100%
@@ -17,6 +14,9 @@ img, video, object, embed
 
 
 // Tablet
-@media only screen and (min-width: 768px)
-@media only screen and (min-width: 1030px)
-@media only screen and (min-width: 1240px)
+
++breakpoint(tablet)
+  body
+// @media only screen and (min-width: 768px)
+// @media only screen and (min-width: 1030px)
+// @media only screen and (min-width: 1240px)
