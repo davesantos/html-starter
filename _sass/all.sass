@@ -1,7 +1,17 @@
+@import base
 @import mixins
+@import susy
+
+// 1322 grid
+$total-columns  : 12
+$column-width   : 90px
+$gutter-width   : 20px
+$susy: (columns: $total-columns,gutters: $gutter-width / $column-width, column-width: $column-width, global-box-sizing: border-box )
+
+$leading: 1.6em
 
 body
-
+  +container
 a
   text-decoration: none
 
@@ -11,7 +21,7 @@ nav ul
 img, video, object, embed
   max-width: 100%
   height: auto !important
-
+  margin-top: rhythm(1)
 
 // Tablet
 

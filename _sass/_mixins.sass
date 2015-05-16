@@ -30,9 +30,14 @@
   @return $remSize * 1rem
 
 @function rhythm($multiple)
-  @if not variable-exist($leading)
-    $leading: 1.6em
+  // @if global-variable-exists($leading)
+  //   @return $leading * $multiple
+  // @else
+  //   $leading: 1.6em
+
   @return $leading * $multiple
+
+
 
 //================================
 // Mixins
@@ -47,12 +52,12 @@
   padding: 0
   list-style: none
 
-=stage
-  background-size: cover
-  height: 100vh
-  width: 100vw
+=hide-text()
+  font: 0/0 a
+  text-shadow: none
+  color: transparent
 
-  //Effects
+//Effects
 
 =subtle-sep($dir, $width, $color)
   $gradient: left
