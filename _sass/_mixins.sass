@@ -2,8 +2,9 @@
 // Variables
 //================================
 
-$base-px-default: 16px !default
-$base-line-height: 1.6em !default
+$base-browser-default: 16px !default
+$base-font-size: 16px !default
+$base-line-height: 22px !default
 
 //================================
 // Placeholders
@@ -43,32 +44,50 @@ $base-line-height: 1.6em !default
 @function strip-units($value)
   @return $value / ($value * 0 + 1)
 
-@function rem-calc($px, $base-val: $base-px-default)
+@function rem-calc($px, $base-val: $base-font-size)
   @if not unitless($px)
     $px: strip-units($px)
   @if not unitless($base-val)
     $base-val: strip-units($base-val)
   @return $px / $base-val * 1rem
 
-@function em-calc($px, $base-val: $base-px-default)
+@function em-calc($px, $base-val: $base-font-size)
   @if not unitless($px)
     $px: strip-units($px)
   @if not unitless($base-val)
     $base-val: strip-units($base-val)
   @return $px / $base-val * 1em
 
-@function rhythm($multiple)
+@function space($multiple)
   @if not unitless($multiple)
     $multiple: 1
-  @return $base-line-height * $multiple
+  @return rem-calc($base-line-height) * $multiple
+
+//================================
+// Typography
+//================================
+
+=baseline($font-size: $base-browser-default, $current-selector: false)
+  $relative-size: 100% * $base-font-size / $base-browser-default
+  @if $current-selector
+    font-size: $relative-size
+  @else
+    html
+      font-size: $relative-size
+
+
+
 
 //================================
 // Mixins
 //================================
 
-=font-size($size)
-  font-size: $size
-  font-size: rem-calc($size)
+=font-size($px)
+  font-size: $px
+  font-size: rem-calc($px)
+
+=line-height($heightValue: $base-line-height)
+  line-height: rem-calc($heightValue)
 
 =hide-text()
   font: 0/0 a
