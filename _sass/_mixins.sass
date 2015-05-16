@@ -1,4 +1,11 @@
 //================================
+// Variables
+//================================
+
+$base-px-default: 16px !default
+$base-line-height: 1.6em !default
+
+//================================
 // Placeholders
 //================================
 
@@ -11,33 +18,30 @@
     clear: both
 
 //==============================
-// Typography
-//==============================
-// @function rem-calc($px, $base-val: $base-px-default)
-//   @if not unitless($px)
-//     $px: strip-units($px)
-//   @if not unitless($base-val)
-//     $base-val: strip-units($base-val)
-//   @return $px / $base-val * 1rem
-
-
-//==============================
 // Functions
 //==============================
 
-@function rem-calc($size)
-  $remSize: $size / 16px
-  @return $remSize * 1rem
+@function strip-units($value)
+  @return $value / ($value * 0 + 1)
+
+@function rem-calc($px, $base-val: $base-px-default)
+  @if not unitless($px)
+    $px: strip-units($px)
+  @if not unitless($base-val)
+    $base-val: strip-units($base-val)
+  @return $px / $base-val * 1rem
+
+@function em-calc($px, $base-val: $base-px-default)
+  @if not unitless($px)
+    $px: strip-units($px)
+  @if not unitless($base-val)
+    $base-val: strip-units($base-val)
+  @return $px / $base-val * 1em
 
 @function rhythm($multiple)
-  // @if global-variable-exists($leading)
-  //   @return $leading * $multiple
-  // @else
-  //   $leading: 1.6em
-
-  @return $leading * $multiple
-
-
+  @if not unitless($multiple)
+    $multiple: 1
+  @return $base-line-height * $multiple
 
 //================================
 // Mixins
@@ -110,7 +114,7 @@
   -o-transition: $args
   transition: $args
 
-=breakpoint($break)
+=respond-to($break)
   @if $break == large
     @media only screen and (min-width: 1240px)
       @content
