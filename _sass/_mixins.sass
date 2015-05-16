@@ -17,6 +17,25 @@ $base-line-height: 1.6em !default
   &:after
     clear: both
 
+//https://web-design-weekly.com/2013/05/12/handy-sass-mixins/
+
+%center-block
+  display: block
+  margin-left: auto
+  margin-right: auto
+
+%concat
+  text-overflow: ellipsis
+  vertical-align: top
+  white-space: nowrap
+  overflow: hidden
+  display: inline-block
+
+%strip-list
+  margin: 0
+  padding: 0
+  list-style: none
+
 //==============================
 // Functions
 //==============================
@@ -51,15 +70,28 @@ $base-line-height: 1.6em !default
   font-size: $size
   font-size: rem-calc($size)
 
-=strip-list
-  margin: 0
-  padding: 0
-  list-style: none
-
 =hide-text()
   font: 0/0 a
   text-shadow: none
   color: transparent
+
+=opacity($opacity)
+  opacity: $opacity
+  $opacity-ie: $opacity * 100
+  filter: alpha(opacity = $opacity-ie) //IE8
+
+=selection($current-selector: false)
+  @if $current-selector
+    &::-moz-selection
+      @content
+    &::selection
+      @content
+  @else
+    ::-moz-selection
+      @content
+    ::selection
+      @content
+
 
 //Effects
 
@@ -114,19 +146,21 @@ $base-line-height: 1.6em !default
   -o-transition: $args
   transition: $args
 
-=respond-to($break)
-  @if $break == large
+//Responsive
+
+=respond-to($device)
+  @if $device == large
     @media only screen and (min-width: 1240px)
       @content
-  @else if $break == desktop
+  @else if $device == desktop
     @media only screen and (min-width: 1030px)
       @content
-  @else if $break == tablet
+  @else if $device == tablet
     @media only screen and (min-width: 768px)
       @content
-  @else if $break == mobile
+  @else if $device == mobile
     @media only screen and (min-width: 481px)
       @content
   @else
-    @media only screen and (#{$break})
+    @media only screen and (#{$device})
       @content
