@@ -8,9 +8,6 @@ $column-width   : 90px
 $gutter-width   : 20px
 $susy: (columns: $total-columns,gutters: $gutter-width / $column-width, column-width: $column-width, global-box-sizing: border-box )
 
-+baseline
-
-
 body
   +font-size(20px)
   +line-height(32px)
@@ -20,19 +17,15 @@ a
   text-decoration: none
 
 nav ul
-  background: pink
 
 img, video, object, embed
   max-width: 100%
   height: auto !important
-  padding-top: space(1)
-  background: lime
 
 // Tablet
 
 +respond-to(tablet)
   body
-    background: yellow
 
 // @media only screen and (min-width: 768px)
 // @media only screen and (min-width: 1030px)
