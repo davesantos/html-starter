@@ -19,18 +19,6 @@ $base-line-height: 22px !default
 
 //https://web-design-weekly.com/2013/05/12/handy-sass-mixins/
 
-%center-block
-  display: block
-  margin-left: auto
-  margin-right: auto
-
-%concat
-  text-overflow: ellipsis
-  vertical-align: top
-  white-space: nowrap
-  overflow: hidden
-  display: inline-block
-
 %strip-list
   margin: 0
   padding: 0
@@ -57,7 +45,7 @@ $base-line-height: 22px !default
     $base-val: strip-units($base-val)
   @return $px / $base-val * 1em
 
-@function space($multiple)
+@function space($multiple, $base-val: $base-line-height)
   @if not unitless($multiple)
     $multiple: 1
   @return rem-calc($base-line-height) * $multiple
@@ -73,11 +61,6 @@ $base-line-height: 22px !default
 
 =line-height($heightValue: $base-line-height)
   line-height: rem-calc($heightValue)
-
-=hide-text()
-  font: 0/0 a
-  text-shadow: none
-  color: transparent
 
 =opacity($opacity)
   opacity: $opacity
@@ -95,28 +78,6 @@ $base-line-height: 22px !default
       @content
     ::selection
       @content
-
-
-//Effects
-
-=subtle-sep($dir, $width, $color)
-  $gradient: left
-  position: relative
-  &:before
-    position: absolute
-    content: ""
-    #{$dir}: 0
-    @if $dir == bottom or $dir == top
-      display: block
-      height: $width
-      width: 100%
-      left: 0
-    @else
-      top: 0
-      width: $width
-      height: 100%
-      $gradient: top
-    background: linear-gradient($gradient, transparent, $color, transparent)
 
 // Animation
 
