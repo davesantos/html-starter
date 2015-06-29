@@ -67,6 +67,11 @@ $base-line-height: 22px !default
   $opacity-ie: $opacity * 100
   filter: alpha(opacity = $opacity-ie) //IE8
 
+=circle($radius)
+  width: $radius
+  height: $radius
+  +border-radius($radius)
+
 =selection($current-selector: false)
   @if $current-selector
     &::-moz-selection
