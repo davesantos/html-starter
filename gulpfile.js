@@ -1,9 +1,8 @@
 var gulp = require('gulp'),
+	browserSync = require('browser-sync'),
 	changed = require('gulp-changed'),
-	gutil = require('gulp-util'),
-	sass = require('gulp-sass'),
 	jade = require('gulp-jade'),
-	livereload = require('gulp-livereload'),
+	sass = require('gulp-sass'),
 	prettify = require('gulp-prettify');
 
 var paths = {
@@ -14,14 +13,14 @@ var paths = {
 function errorHandler(error) {
 	console.error(String(error));
 	this.emit('end');
-	gutil.beep();
+	browserSync.notify('Error');
 }
 
 gulp.task('sass', function(){
 	gulp.src(paths.sass + '/**/*.{sass,scss}')
 		.pipe(sass().on('error', errorHandler))
 		.pipe(gulp.dest(paths.css))
-		.pipe(livereload());
+		.pipe(browserSync.reload({stream:true}))
 });
 
 gulp.task('jade', function(){
@@ -31,7 +30,7 @@ gulp.task('jade', function(){
 			pretty: true
 		}))
 		.pipe(gulp.dest('.'))
-		.pipe(livereload());
+		browserSync.reload();
 })
 
 gulp.task('indent', function(){
@@ -47,12 +46,19 @@ gulp.task('indent', function(){
 });
 
 
-gulp.task('watch', function(){
-	livereload.listen();
+gulp.task('serve', ['sass'], function() {
+
+  browserSync.init({
+	  server: {
+      baseDir: "./"
+    }
+  });
+
 	gulp.watch( paths.sass + '/**/*.{sass,scss}', ['sass']);
 	gulp.watch('./*.jade', ['jade']);
-	gulp.watch(['./js/*']).on('change', livereload.changed );
+	gulp.watch(['./js/*']).on('change', browserSync.reload );
+
 })
 
-gulp.task('default', ['sass', 'watch']);
+gulp.task('default', ['serve']);
 
