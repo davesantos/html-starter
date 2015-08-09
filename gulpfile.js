@@ -29,7 +29,7 @@ gulp.task('jade', function(){
 		.pipe(jade({
 			pretty: true
 		}))
-		.pipe(gulp.dest('.'))
+		.pipe(gulp.dest('.'));
 		browserSync.reload();
 })
 
