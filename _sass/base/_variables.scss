@@ -1,0 +1,13 @@
+// 1322 grid
+$total-columns  : 12;
+$column-width   : 90px;
+$gutter-width   : 20px;
+$susy: (
+  columns: $total-columns,
+  gutters: $gutter-width / $column-width,
+  column-width: $column-width,
+  global-box-sizing: border-box
+);
+
+$modular-scale-ratio: $golden;
+$modular-scale-base: 1.2em;

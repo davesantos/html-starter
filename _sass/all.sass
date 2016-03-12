@@ -3,6 +3,7 @@
 //================================
 @import 'base/susy/language/susy'
 @import 'base/bourbon/bourbon'
+@import 'base/variables'
 
 //================================
 // Modules
@@ -10,13 +11,9 @@
 
 @import 'modules/mixins'
 
-// 1322 grid
-$total-columns  : 12
-$column-width   : 90px
-$gutter-width   : 20px
-$susy: (columns: $total-columns,gutters: $gutter-width / $column-width, column-width: $column-width, global-box-sizing: border-box )
-
-$base-line-height: 28px
+//================================
+// Structure
+//================================
 
 body
   // +container()
@@ -27,8 +24,6 @@ body
 a
   text-decoration: none
 
-nav ul
-
 img, video, object, embed
   max-width: 100%
   height: auto !important
@@ -38,6 +33,5 @@ img
 
 @media only screen and (min-width: 768px)
   body
-
 // @media only screen and (min-width: 1030px)
 // @media only screen and (min-width: 1240px)
