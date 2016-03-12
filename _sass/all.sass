@@ -17,11 +17,13 @@
 
 body
   // +container()
-  +font-size(20px)
-  +line-height(28px)
+  font-size: modular-scale(1)
+  background: map-get($colors, background)
+  color: map-get($colors, text)
   // padding: space(2) gutter()
 
 a
+  color: map-get($colors, anchor)
   text-decoration: none
 
 img, video, object, embed

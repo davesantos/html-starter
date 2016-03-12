@@ -1,0 +1,64 @@
+//================================
+// Placeholders
+//================================
+
+//https://web-design-weekly.com/2013/05/12/handy-sass-mixins/
+
+%strip-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+//==============================
+// Functions
+//==============================
+
+@function spacing($multiple, $leading: $modular-scale-base ) {
+  @return $leading * $multiple;
+}
+
+//================================
+// Mixins
+//================================
+
+@mixin font-smoothing($boolean: true) {
+  @if $boolean {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  } @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+     -moz-osx-font-smoothing: auto;
+  }
+}
+
+//Responsive
+
+@mixin respond-to($device) {
+  @if $device == large {
+    @media only screen and (min-width: 1240px) {
+      @content;
+    }
+  }
+  @else if $device == desktop {
+    @media only screen and (min-width: 1030px) {
+      @content;
+    }
+  }
+  @else if $device == tablet {
+    @media only screen and (min-width: 768px) {
+      @content;
+    }
+  }
+  @else if $device == mobile {
+    @media only screen and (min-width: 481px) {
+      @content;
+    }
+  }
+  @else {
+    @media only screen and (#{#{$device}}) {
+      @content;
+    }
+  }
+}

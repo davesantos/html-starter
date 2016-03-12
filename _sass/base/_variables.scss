@@ -2,6 +2,8 @@
 $total-columns  : 12;
 $column-width   : 90px;
 $gutter-width   : 20px;
+$modular-scale-ratio: $perfect-fifth;
+// $modular-scale-base: 1.2em;
 $susy: (
   columns: $total-columns,
   gutters: $gutter-width / $column-width,
@@ -9,5 +11,8 @@ $susy: (
   global-box-sizing: border-box
 );
 
-$modular-scale-ratio: $golden;
-$modular-scale-base: 1.2em;
+$colors: (
+  anchor:      #f00,
+  background:  #fff,
+  text:        #000
+);
