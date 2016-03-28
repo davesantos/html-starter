@@ -19,6 +19,11 @@
   @return $leading * $multiple;
 }
 
+@function rand($min, $max) {
+  @return random($max - $min) + $min;
+}
+
+
 //================================
 // Mixins
 //================================
