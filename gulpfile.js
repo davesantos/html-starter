@@ -1,7 +1,7 @@
 var gulp = require('gulp'),
 	browserSync = require('browser-sync'),
 	changed = require('gulp-changed'),
-	jade = require('gulp-jade'),
+ 	pug = require('gulp-pug'),
 	sass = require('gulp-sass'),
 	prettify = require('gulp-prettify');
 
@@ -23,10 +23,10 @@ gulp.task('sass', function(){
 		.pipe(browserSync.reload({stream:true}))
 });
 
-gulp.task('jade', function(){
-	gulp.src('./*.jade')
+gulp.task('pug', function(){
+	gulp.src('./*.pug')
 		.pipe(changed('.', {extension: '.html'}))
-		.pipe(jade({
+		.pipe(pug({
 			pretty: true
 		}))
 		.pipe(gulp.dest('.'));
@@ -55,7 +55,7 @@ gulp.task('serve', ['sass'], function() {
   });
 
 	gulp.watch( paths.sass + '/**/*.{sass,scss}', ['sass']);
-	gulp.watch('./*.jade', ['jade']);
+	gulp.watch('./*.pug', ['pug']);
 	gulp.watch(['./js/*']).on('change', browserSync.reload );
 
 })
