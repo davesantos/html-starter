@@ -19,7 +19,7 @@
 
 //------------------------------------------------------------
 //
-//  Structure
+//  Global
 //
 //------------------------------------------------------------
 
@@ -32,10 +32,6 @@ body
   color: map-get($colors, text)
   padding: spacing(2) gutter()
 
-h1, h2, h3, h4
-  font-family: 'atc-duel', sans-serif
-  text-transform: uppercase
-
 a
   color: map-get($colors, anchor)
   text-decoration: none
@@ -46,6 +42,12 @@ img, video, object, embed
 img
   -ms-interpolation-mode: bicubic
   vertical-align: middle
+
+//------------------------------------------------------------
+//
+//  Structure
+//
+//------------------------------------------------------------
 
 @media only screen and (min-width: 768px)
   body
