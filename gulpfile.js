@@ -1,8 +1,9 @@
 var gulp = require('gulp'),
 	browserSync = require('browser-sync'),
 	changed = require('gulp-changed'),
- 	pug = require('gulp-pug'),
+	cleanCSS = require('gulp-clean-css'),
 	sass = require('gulp-sass'),
+ 	pug = require('gulp-pug'),
 	prettify = require('gulp-prettify');
 
 var paths = {
@@ -19,6 +20,14 @@ function errorHandler(error) {
 gulp.task('sass', function(){
 	gulp.src(paths.sass + '/**/*.{sass,scss}')
 		.pipe(sass().on('error', errorHandler))
+		.pipe( cleanCSS({
+		  debug: true,
+		  keepBreaks: true,
+		  keepSpecialComments: false
+		}, function(details) {
+		  console.log(details.name + ': ' + details.stats.originalSize);
+		  console.log(details.name + ': ' + details.stats.minifiedSize);
+		}) )
 		.pipe(gulp.dest(paths.css))
 		.pipe(browserSync.reload({stream:true}))
 });
