@@ -30,7 +30,10 @@ body
   font-size: modular-scale(1)
   background: map-get($colors, background)
   color: map-get($colors, text)
-  padding: spacing(2) gutter()
+  +leadingsize(padding-top)
+  +leadingsize(padding-bottom)
+  padding-left: gutter()
+  padding-right: gutter()
 
 a
   color: map-get($colors, anchor)
@@ -48,6 +51,9 @@ img
 //  Structure
 //
 //------------------------------------------------------------
+p
+  +leadingsize(margin-bottom)
+  +leadingsize(margin-top)
 
 @media only screen and (min-width: 768px)
   body

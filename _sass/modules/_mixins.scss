@@ -82,3 +82,13 @@
     }
   }
 }
+
+@mixin leadingsize($selector, $multiple: 1){
+  #{$selector}: nth($leadings, 1);
+  @for $i from 2 through $breakpoints_total {
+    @media screen and (min-width: nth($points, $i) ) {
+      #{$selector}: nth($leadings, $i) * $multiple;
+    }
+  }
+
+}
