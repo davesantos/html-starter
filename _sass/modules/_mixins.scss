@@ -22,6 +22,7 @@
   @return $leading * $multiple;
 }
 
+// Random Number
 @function rand($min, $max) {
   @return random($max - $min) + $min;
 }
