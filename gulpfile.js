@@ -20,16 +20,14 @@ function errorHandler(error) {
 gulp.task('sass', function(){
 	gulp.src(paths.sass + '/**/*.{sass,scss}')
 		.pipe(sass({
-          outputStyle: 'compressed',
-          includePaths: ['node_modules/susy/sass']
-      }).on('error', errorHandler))
+	    includePaths: ['node_modules/susy/sass']
+	    }).on('error', errorHandler))
 		.pipe( cleanCSS({
 		  debug: true,
 		  keepBreaks: true,
 		  keepSpecialComments: false
 		}, function(details) {
-		  console.log(details.name + ': ' + details.stats.originalSize);
-		  console.log(details.name + ': ' + details.stats.minifiedSize);
+		  console.log(details.name + ': ' + details.stats.originalSize + ' => ' + details.stats.minifiedSize);
 		}) )
 		.pipe(gulp.dest(paths.css))
 		.pipe(browserSync.reload({stream:true}))
