@@ -21,13 +21,13 @@ $rootsizes: (
   mobile  :   modular-scale(0),
   tablet  :   modular-scale(1),
   desktop :   modular-scale(2),
-  large   :   modular-scale(5)
+  large   :   modular-scale(3)
 );
 $lineheights: (
-  leading-1 :   modular-scale(4),
-  leading-2 :   modular-scale(5),
-  leading-3 :   modular-scale(6),
-  leading-4 :   modular-scale(6)
+  leading-1 :   modular-scale(2),
+  leading-2 :   modular-scale(3),
+  leading-3 :   modular-scale(3),
+  leading-4 :   modular-scale(3)
 );
 
 $sizes:   map-values($rootsizes);
