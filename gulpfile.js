@@ -1,10 +1,10 @@
-var gulp = require('gulp'),
-	browserSync = require('browser-sync'),
-	changed = require('gulp-changed'),
-	cleanCSS = require('gulp-clean-css'),
-	sass = require('gulp-sass'),
- 	pug = require('gulp-pug'),
-	prettify = require('gulp-prettify');
+var gulp = require('gulp');
+var browserSync = require('browser-sync');
+var changed = require('gulp-changed');
+var cleanCSS = require('gulp-clean-css');
+var sass = require('gulp-sass');
+var pug = require('gulp-pug');
+var prettify = require('gulp-prettify');
 
 var paths = {
   sass: '_sass',
@@ -16,6 +16,10 @@ function errorHandler(error) {
 	this.emit('end');
 	browserSync.notify('Error');
 }
+
+gulp.task('travis', ['pug', 'indent', 'serve'], function() {
+  console.log('complete');
+});
 
 gulp.task('sass', function(){
 	gulp.src(paths.sass + '/**/*.{sass,scss}')
