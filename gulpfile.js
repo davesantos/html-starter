@@ -27,7 +27,7 @@ gulp.task('sass', function(){
 		  keepBreaks: true,
 		  keepSpecialComments: false
 		}, function(details) {
-		  console.log(details.name + ': ' + details.stats.originalSize + ' => ' + details.stats.minifiedSize);
+		  console.log(details.name + ': ' + details.stats.originalSize + ' -> ' + details.stats.minifiedSize);
 		}) )
 		.pipe(gulp.dest(paths.css))
 		.pipe(browserSync.reload({stream:true}))
