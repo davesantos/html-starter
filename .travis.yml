@@ -1,7 +1,8 @@
 language: ruby
 rvm:
   - 2.5.1
-  - "stable"
+before_install:
+  - npm install gulp-cli -g
 install:
   - npm install
 script: gulp travis
