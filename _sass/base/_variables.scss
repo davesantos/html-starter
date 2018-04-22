@@ -3,7 +3,7 @@
 // $column-width   : 90px;
 // $gutter-width   : 20px;
 
-$modular-scale-ratio: $minor-second;
+$modular-scale-ratio: $major-second;
 // $modular-scale-base: 1.2em;
 
 $colors: (
@@ -18,16 +18,16 @@ $breakpoints: (
   large     : 1240px
 );
 $rootsizes: (
-  mobile  :   modular-scale(0),
-  tablet  :   modular-scale(1),
+  mobile  :   modular-scale(1),
+  tablet  :   modular-scale(2),
   desktop :   modular-scale(2),
-  large   :   modular-scale(5)
+  large   :   modular-scale(2)
 );
 $lineheights: (
-  leading-1 :   modular-scale(4),
-  leading-2 :   modular-scale(5),
-  leading-3 :   modular-scale(6),
-  leading-4 :   modular-scale(6)
+  leading-1 :   modular-scale(2),
+  leading-2 :   modular-scale(3),
+  leading-3 :   modular-scale(3),
+  leading-4 :   modular-scale(3)
 );
 
 $sizes:   map-values($rootsizes);
