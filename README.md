@@ -1,5 +1,6 @@
+[![Build Status](https://travis-ci.org/davesantos/html-starter.svg?branch=master)](https://travis-ci.org/davesantos/html-starter)
 
-> Personal starter of Dave Santos
+> A personal starter of Dave Santos
 
 ### Getting Started
 
