@@ -3,9 +3,8 @@
 //  Base
 //
 //------------------------------------------------------------
-
+@import susy
 @import 'base/normalize'
-@import 'base/susy/language/susy'
 @import 'base/bourbon/bourbon'
 @import 'base/variables'
 
@@ -25,7 +24,6 @@
 
 body
   +rootsize
-  +container
   +font-smoothing
   font-size: modular-scale(1)
   background: map-get($colors, background)
