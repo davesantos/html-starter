@@ -1,16 +1,18 @@
 // 1322 grid
-$total-columns  : 12;
-$column-width   : 90px;
+// $total-columns  : 12;
+// $column-width   : 90px;
 $gutter-width   : 20px;
 
 $modular-scale-ratio: $minor-second;
 // $modular-scale-base: 1.2em;
+
 $susy: (
-  columns: $total-columns,
-  gutters: $gutter-width / $column-width,
-  column-width: $column-width,
-  global-box-sizing: border-box
+  'columns': susy-repeat(6),
+  'gutters': $gutter-width,
+  'spread': 'wide',
+  'container-spread': 'wide',
 );
+
 $colors: (
   anchor:      #f00,
   background:  #fff,
