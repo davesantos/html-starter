@@ -19,9 +19,7 @@ function errorHandler(error) {
 
 gulp.task('sass', function(){
 	gulp.src(paths.sass + '/**/*.{sass,scss}')
-		.pipe(sass({
-	    includePaths: ['node_modules/susy/sass']
-	    }).on('error', errorHandler))
+		.pipe(sass().on('error', errorHandler))
 		.pipe( cleanCSS({
 		  debug: true,
 		  keepBreaks: true,

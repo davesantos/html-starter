@@ -3,7 +3,7 @@
 //  Base
 //
 //------------------------------------------------------------
-@import 'susy'
+
 @import 'base/normalize'
 @import 'base/bourbon/bourbon'
 @import 'base/variables'
@@ -25,13 +25,10 @@
 body
   +rootsize
   +font-smoothing
-  font-size: modular-scale(1)
   background: map-get($colors, background)
   color: map-get($colors, text)
   +leadingsize(padding-top)
   +leadingsize(padding-bottom)
-  padding-left: gutter()
-  padding-right: gutter()
 
 a
   color: map-get($colors, anchor)
@@ -40,6 +37,7 @@ a
 img, video, object, embed
   max-width: 100%
   height: auto !important
+
 img
   -ms-interpolation-mode: bicubic
   vertical-align: middle
