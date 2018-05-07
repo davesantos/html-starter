@@ -23,12 +23,15 @@
 //------------------------------------------------------------
 
 body
-  +rootsize
   +font-smoothing
+  +leadingsize(padding-bottom)
+  +leadingsize(padding-top)
+  +rootsize
   background: map-get($colors, background)
   color: map-get($colors, text)
-  +leadingsize(padding-top)
-  +leadingsize(padding-bottom)
+  font-family: $font-stack-helvetica
+  padding-left: modular-scale(-4)
+  padding-right: modular-scale(-4)
 
 a
   color: map-get($colors, anchor)
@@ -47,6 +50,7 @@ img
 //  Structure
 //
 //------------------------------------------------------------
+
 p
   +leadingsize(margin-bottom)
   +leadingsize(margin-top)
