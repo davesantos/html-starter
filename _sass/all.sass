@@ -5,8 +5,6 @@
 //------------------------------------------------------------
 
 @import 'base/normalize'
-@import 'base/bourbon/bourbon'
-@import 'base/variables'
 
 //------------------------------------------------------------
 //
@@ -22,19 +20,16 @@
 //
 //------------------------------------------------------------
 
-body
-  +font-smoothing
-  +leadingsize(padding-bottom)
-  +leadingsize(padding-top)
-  +rootsize
-  background: map-get($colors, background)
-  color: map-get($colors, text)
-  font-family: $font-stack-helvetica
-  padding-left: modular-scale(-4)
-  padding-right: modular-scale(-4)
+@media screen and (min-width: 320px)
+  \:root
+    font-size: calc(16px + (24 - 16) * (100vw - 320px)/(1600 - 320))
+    line-height: 1.5
+
+@media screen and (min-width: 1000px)
+  \:root
+    font-size: 22px
 
 a
-  color: map-get($colors, anchor)
   text-decoration: none
 
 img, video, object, embed
@@ -50,10 +45,6 @@ img
 //  Structure
 //
 //------------------------------------------------------------
-
-p
-  +leadingsize(margin-bottom)
-  +leadingsize(margin-top)
 
 @media only screen and (min-width: 768px)
   body
