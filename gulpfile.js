@@ -17,9 +17,9 @@ function errorHandler(error) {
 	browserSync.notify('Error');
 }
 
-// gulp.task('travis', ['pug', 'indent', 'serve'], function() {
-//   console.log('complete');
-// });
+gulp.task('travis', gulp.series(gulp.parallel('pug', 'indent', 'serve'), function() {
+  console.log('complete');
+}));
 
 gulp.task('sass', function(){
 	return gulp.src(paths.sass + '/**/*.{sass,scss}')
