@@ -21,7 +21,7 @@ function errorHandler(error) {
 gulp.task('sass', function(){
   return gulp.src(paths.sass + '/**/*.{sass,scss}')
     .pipe(sass().on('error', errorHandler))
-    .pipe( cleanCSS({
+    .pipe(cleanCSS({
       debug: true,
       keepBreaks: true,
       keepSpecialComments: false
@@ -39,7 +39,7 @@ gulp.task('pug', function(){
       pretty: true
     }))
     .pipe(gulp.dest('.'));
-})
+});
 
 gulp.task('indent', function(){
 
@@ -70,7 +70,7 @@ gulp.task('serve', gulp.series('sass', function() {
 }));
 
 gulp.task('travis', gulp.series(gulp.parallel('pug', 'indent', 'serve'), function() {
-  console.log('complete');
+  return console.log('complete');
 }));
 
 gulp.task('default', gulp.series('serve'));
