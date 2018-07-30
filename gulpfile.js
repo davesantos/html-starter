@@ -17,12 +17,12 @@ function errorHandler(error) {
 	browserSync.notify('Error');
 }
 
-gulp.task('travis', ['pug', 'indent', 'serve'], function() {
-  console.log('complete');
-});
+// gulp.task('travis', ['pug', 'indent', 'serve'], function() {
+//   console.log('complete');
+// });
 
 gulp.task('sass', function(){
-	gulp.src(paths.sass + '/**/*.{sass,scss}')
+	return gulp.src(paths.sass + '/**/*.{sass,scss}')
 		.pipe(sass().on('error', errorHandler))
 		.pipe( cleanCSS({
 		  debug: true,
@@ -36,17 +36,17 @@ gulp.task('sass', function(){
 });
 
 gulp.task('pug', function(){
-	gulp.src('./*.pug')
+	return gulp.src('./*.pug')
 		.pipe(changed('.', {extension: '.html'}))
 		.pipe(pug({
 			pretty: true
 		}))
 		.pipe(gulp.dest('.'));
-		browserSync.reload();
 })
 
 gulp.task('indent', function(){
-	gulp.src('*.html')
+
+	return gulp.src('*.html')
 		.pipe(prettify({
 			indent_inner_html: true,
 			indent_with_tabs: true,
@@ -55,10 +55,10 @@ gulp.task('indent', function(){
 			preserve_newlines: false
 		}))
 		.pipe(gulp.dest('.'));
+
 });
 
-
-gulp.task('serve', ['sass'], function() {
+gulp.task('serve', gulp.series('sass', function() {
 
   browserSync.init({
 	  server: {
@@ -66,11 +66,11 @@ gulp.task('serve', ['sass'], function() {
     }
   });
 
-	gulp.watch( paths.sass + '/**/*.{sass,scss}', ['sass']);
-	gulp.watch('./*.pug', ['pug']);
+	gulp.watch(paths.sass + '/**/*.{sass,scss}', gulp.parallel('sass')).on('change', browserSync.reload );
+	gulp.watch('./*.pug', gulp.parallel('pug')).on('change', browserSync.reload );
 	gulp.watch(['./js/*']).on('change', browserSync.reload );
 
-})
+}));
 
-gulp.task('default', ['serve']);
 
+gulp.task('default', gulp.series('serve'));
