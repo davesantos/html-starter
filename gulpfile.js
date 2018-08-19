@@ -1,12 +1,14 @@
-var gulp = require('gulp');
-var browserSync = require('browser-sync');
-var changed = require('gulp-changed');
-var cleanCSS = require('gulp-clean-css');
-var sass = require('gulp-sass');
-var pug = require('gulp-pug');
-var prettify = require('gulp-prettify');
+"use strict";
 
-var paths = {
+const gulp = require('gulp');
+const browserSync = require('browser-sync');
+const changed = require('gulp-changed');
+const cleanCSS = require('gulp-clean-css');
+const sass = require('gulp-sass');
+const pug = require('gulp-pug');
+const prettify = require('gulp-prettify');
+
+const paths = {
   sass: '_sass',
   css: 'css'
 };
@@ -16,7 +18,6 @@ function errorHandler(error) {
   this.emit('end');
   browserSync.notify('Error');
 }
-
 
 gulp.task('sass', function(){
   return gulp.src(paths.sass + '/**/*.{sass,scss}')
