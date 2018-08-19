@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "html-starter",
   "description": "",
   "devDependencies": {
     "browser-sync": "^2.24.6",
@@ -15,5 +15,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/davesantos/html-starter.git"
+  },
+  "dependencies": {
+    "lodash": "^4.17.10"
   }
 }
