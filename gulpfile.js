@@ -71,7 +71,7 @@ gulp.task('serve', gulp.series('sass', function() {
 }));
 
 gulp.task('travis', gulp.series(gulp.parallel('pug', 'indent', 'serve'), function() {
-  return console.log('complete');
+  return console.log('complete'), done();
 }));
 
 gulp.task('default', gulp.series('serve'));
