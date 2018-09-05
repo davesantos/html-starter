@@ -1,12 +1,12 @@
 "use strict";
 
-const gulp = require('gulp');
-const browserSync = require('browser-sync');
-const changed = require('gulp-changed');
-const cleanCSS = require('gulp-clean-css');
-const sass = require('gulp-sass');
-const pug = require('gulp-pug');
-const prettify = require('gulp-prettify');
+import gulp from 'gulp';
+import browserSync from 'browser-sync';
+import changed from 'gulp-changed';
+import cleanCSS from 'gulp-clean-css';
+import sass from 'gulp-sass';
+import pug from 'gulp-pug';
+import prettify from 'gulp-prettify';
 
 const paths = {
   sass: '_sass',
