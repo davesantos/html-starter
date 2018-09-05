@@ -1,9 +1,7 @@
-language: ruby
-cache: bundler
-rvm:
-  - 2.5.1
-install:
-  - bundle install
+language: node_js
+node_js:
+  - "iojs"
+  - "9.11.1"
 before_script:
   - npm install -g gulp-cli
   - npm install
