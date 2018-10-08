@@ -4,11 +4,7 @@ The personal starter of Dave Santos following the standards of [HTML5BP](https:/
 
 ### Getting Started
 
-Assuming you already have [bundler](https://bundler.io/), if not enter `gem install bundler` first:
-```sh
-bundle install
-```
-Next install node packages from `packages.json`
+Install Node.js packages from `packages.json`
 
 ```sh
 npm install
