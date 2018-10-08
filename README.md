@@ -4,10 +4,11 @@
 
 ### Getting Started
 
+Assuming you already have [bundler](https://bundler.io/), if not enter `gem install bundler` first:
 ```sh
 bundle install
 ```
-Then
+Next install node packages from `packages.json`
 
 ```sh
 npm install
@@ -16,7 +17,8 @@ npm install
 ### Deploy
 
 ```sh
-gulp
+gulp build # Compile files into dist folder
+gulp # Create a local server with BrowserSync
 ```
 
 
