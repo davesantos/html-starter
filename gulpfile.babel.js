@@ -29,10 +29,6 @@ const errorHandler = error => {
   browserSync.notify('Error');
 }
 
-gulp.task('clean', done => {
-  del(['dist']);
-  done();
-});
 
 gulp.task('sass', () => {
   return gulp.src(paths.sass + '/**/*.{sass,scss}')
@@ -76,8 +72,12 @@ gulp.task('js', () => {
   .pipe(gulp.dest(paths.dest));
 });
 
+gulp.task('clean', done => {
+  del(['dist']);
+  done();
+});
 
-gulp.task('build', gulp.parallel('pug', 'sass','js'));
+gulp.task('build', gulp.series(gulp.parallel('pug', 'sass','js')));
 
 gulp.task('serve', gulp.series(gulp.parallel('sass', 'pug', 'js'), () =>  {
   browserSync.init({
