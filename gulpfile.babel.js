@@ -7,6 +7,7 @@ import cleanCSS from 'gulp-clean-css';
 import sass from 'gulp-sass';
 import pug from 'gulp-pug';
 import prettify from 'gulp-prettify';
+import del from 'del';
 
 const paths = {
   dest: 'dist',
@@ -16,16 +17,22 @@ const paths = {
 };
 
 const configFiles = [
-  // 'CNAME',
-  // '.surgeignore',
+  'CNAME',
+  '.surgeignore',
   'src/js/*'
 ]
+
 
 const errorHandler = error => {
   console.error(String(error));
   this.emit('end');
   browserSync.notify('Error');
 }
+
+gulp.task('clean', done => {
+  del(['dist']);
+  done();
+});
 
 gulp.task('sass', () => {
   return gulp.src(paths.sass + '/**/*.{sass,scss}')
@@ -65,7 +72,7 @@ gulp.task('indent', () => {
 });
 
 gulp.task('js', () => {
-  return gulp.src(configFiles)
+  return gulp.src(configFiles, { allowEmpty: true })
   .pipe(gulp.dest(paths.dest));
 });
 
