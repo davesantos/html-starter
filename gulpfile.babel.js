@@ -16,8 +16,9 @@ const paths = {
 };
 
 const configFiles = [
-  'CNAME',
-  '.surgeignore'
+  // 'CNAME',
+  // '.surgeignore',
+  'src/js/*'
 ]
 
 const errorHandler = error => {
@@ -64,11 +65,12 @@ gulp.task('indent', () => {
 });
 
 gulp.task('js', () => {
-  return gulp.src(paths.source + '/js/*.js')
-  .pipe(gulp.dest(paths.dest + '/js'));
+  return gulp.src(configFiles)
+  .pipe(gulp.dest(paths.dest));
 });
 
 
+gulp.task('build', gulp.parallel('pug', 'sass','js'));
 
 gulp.task('serve', gulp.series(gulp.parallel('sass', 'pug', 'js'), () =>  {
   browserSync.init({
