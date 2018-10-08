@@ -45,7 +45,6 @@ gulp.task('pug', () => {
 });
 
 gulp.task('indent', () => {
-
   return gulp.src('*.html')
     .pipe(prettify({
       indent_inner_html: true,
@@ -58,14 +57,12 @@ gulp.task('indent', () => {
 });
 
 gulp.task('serve', gulp.series('sass', () =>  {
-
   browserSync.init({
     server: {
       baseDir: "./"
     },
     notify: false
   });
-
   gulp.watch(paths.sass + '/**/*.{sass,scss}', gulp.parallel('sass')).on('change', browserSync.reload );
   gulp.watch('./*.pug', gulp.parallel('pug')).on('change', browserSync.reload );
   gulp.watch(['./js/*']).on('change', browserSync.reload );

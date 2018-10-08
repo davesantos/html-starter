@@ -13,6 +13,12 @@ Then
 npm install
 ```
 
+### Deploy
+
+```sh
+gulp
+```
+
 
 
 
