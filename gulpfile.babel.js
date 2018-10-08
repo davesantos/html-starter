@@ -15,6 +15,11 @@ const paths = {
   css: 'dist/css'
 };
 
+const configFiles = [
+  'CNAME',
+  '.surgeignore'
+]
+
 const errorHandler = error => {
   console.error(String(error));
   this.emit('end');
@@ -62,6 +67,8 @@ gulp.task('js', () => {
   return gulp.src(paths.source + '/js/*.js')
   .pipe(gulp.dest(paths.dest + '/js'));
 });
+
+
 
 gulp.task('serve', gulp.series(gulp.parallel('sass', 'pug', 'js'), () =>  {
   browserSync.init({
