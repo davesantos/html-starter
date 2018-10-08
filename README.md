@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/davesantos/html-starter.svg?branch=master)](https://travis-ci.org/davesantos/html-starter)
 
-> A personal starter of Dave Santos
+The personal starter of Dave Santos following the standards of [HTML5BP](https://html5boilerplate.com/) packaged with [Normalize.css](https://necolas.github.io/normalize.css/)
 
 ### Getting Started
 
