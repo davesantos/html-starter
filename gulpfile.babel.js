@@ -9,8 +9,10 @@ import pug from 'gulp-pug';
 import prettify from 'gulp-prettify';
 
 const paths = {
-  sass: '_sass',
-  css: 'css'
+  dest: 'dist',
+  source: 'src',
+  sass: 'src/_sass',
+  css: 'dist/css'
 };
 
 const errorHandler = error => {
@@ -36,16 +38,16 @@ gulp.task('sass', () => {
 });
 
 gulp.task('pug', () => {
-  return gulp.src('./*.pug')
+  return gulp.src(paths.source + '/**/*.pug')
     .pipe(changed('.', {extension: '.html'}))
     .pipe(pug({
       pretty: true
     }))
-    .pipe(gulp.dest('.'));
+    .pipe(gulp.dest(paths.dest));
 });
 
 gulp.task('indent', () => {
-  return gulp.src('*.html')
+  return gulp.src(paths.dest + '/**/*.html')
     .pipe(prettify({
       indent_inner_html: true,
       indent_with_tabs: true,
@@ -56,17 +58,23 @@ gulp.task('indent', () => {
     .pipe(gulp.dest('.'));
 });
 
-gulp.task('serve', gulp.series('sass', () =>  {
+gulp.task('js', () => {
+  return gulp.src(paths.source + '/js/*.js')
+  .pipe(gulp.dest(paths.dest + '/js'));
+});
+
+gulp.task('serve', gulp.series(gulp.parallel('sass', 'pug', 'js'), () =>  {
   browserSync.init({
     server: {
-      baseDir: "./"
+      baseDir: paths.dest
     },
-    notify: false
+    notify: false,
+    open: false
   });
-  gulp.watch(paths.sass + '/**/*.{sass,scss}', gulp.parallel('sass')).on('change', browserSync.reload );
-  gulp.watch('./*.pug', gulp.parallel('pug')).on('change', browserSync.reload );
-  gulp.watch(['./js/*']).on('change', browserSync.reload );
 
+  gulp.watch(paths.sass + '/**/*.{sass,scss}', gulp.parallel('sass')).on('change', browserSync.reload );
+  gulp.watch(paths.source + '/**/*.pug', gulp.parallel('pug')).on('change', browserSync.reload );
+  gulp.watch(paths.source + '/js/*').on('change', browserSync.reload );
 }));
 
 gulp.task('travis', gulp.series(gulp.parallel('pug', 'indent', 'serve'), () =>  {
