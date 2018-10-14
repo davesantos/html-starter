@@ -19,16 +19,15 @@ const paths = {
 const configFiles = [
   'CNAME',
   '.surgeignore',
-  'src/js/*'
+  'src/js/*',
+  'src/js/.*'
 ]
-
 
 const errorHandler = error => {
   console.error(String(error));
   this.emit('end');
   browserSync.notify('Error');
 }
-
 
 gulp.task('sass', () => {
   return gulp.src(paths.sass + '/**/*.{sass,scss}')
@@ -68,7 +67,7 @@ gulp.task('indent', () => {
 });
 
 gulp.task('js', () => {
-  return gulp.src(configFiles, { allowEmpty: true })
+  return gulp.src(configFiles, { dot: true, allowEmpty: true })
   .pipe(gulp.dest(paths.dest));
 });
 
