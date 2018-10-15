@@ -14,5 +14,6 @@ npm install
 
 ```sh
 npm start
-npm run build
+npm run dev
+npm run production
 ```
