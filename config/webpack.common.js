@@ -19,31 +19,37 @@ module.exports =  {
       hash: true,
       template: './index.pug'
     }),
-    new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[id].css"
-    })
     // new MiniCssExtractPlugin({
-    //   filename: devMode ? '[name].css' : '[name].[hash:5].css',
-    //   chunkFilename: devMode ? '[id].css' : '[id].[hash:5].css',
+    //   filename: "[name].css",
+    //   chunkFilename: "[id].css"
     // })
+    new MiniCssExtractPlugin({
+      filename: devMode ? '[name].css' : '[name].[hash:5].css',
+      chunkFilename: devMode ? '[id].css' : '[id].[hash:5].css',
+    })
   ],
   module: {
     rules: [
       {
         test: /\.(sa|sc|c)ss$/,
+        // use: [
+        //   {
+        //     loader: MiniCssExtractPlugin.loader,
+        //     options: {
+        //       // you can specify a publicPath here
+        //       // by default it use publicPath in webpackOptions.output
+        //       // publicPath: '../'
+        //     }
+        //   },
+        //   "css-loader",
+        //   "sass-loader"
+        // ]
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              // you can specify a publicPath here
-              // by default it use publicPath in webpackOptions.output
-              // publicPath: '../'
-            }
-          },
-          "css-loader",
-          "sass-loader"
-       ]
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
+          // 'postcss-loader',
+          'sass-loader',
+        ],
       },
       {
         test: /\.pug$/,
