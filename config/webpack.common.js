@@ -4,12 +4,16 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const devMode = process.env.NODE_ENV !== 'production';
 
+let cleanOptions = {
+  root: '/Users/davesantos/Documents/www/html-starter/'
+}
+
 module.exports =  {
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   context: path.join(__dirname, '../src'),
   entry: './main.js',
   plugins: [
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(['dist'], cleanOptions),
     new HtmlWebpackPlugin({
       title: 'Webpack Starter',
       minify: {
