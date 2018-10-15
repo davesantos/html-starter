@@ -27,7 +27,7 @@
   "scripts": {
     "start": "webpack-dev-server --env=dev",
     "dev": "webpack --env=dev --mode development",
-    "build": "cross-env NODE_ENV=production webpack --env=prod --mode production"
+    "production": "cross-env NODE_ENV=production webpack --env=prod --mode production"
   },
   "dependencies": {
     "normalize.css": "^8.0.0"
