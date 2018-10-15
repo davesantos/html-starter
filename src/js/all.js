@@ -1,1 +1,1 @@
-console.log('This is working!');
+console.log('all.js is working!');

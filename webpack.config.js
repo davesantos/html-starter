@@ -28,7 +28,7 @@ module.exports =  {
       template: './index.pug'
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].css",
+      filename: "[name].[hash:5].css",
       chunkFilename: "[id].css"
     })
   ],
