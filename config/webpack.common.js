@@ -7,7 +7,6 @@ const devMode = process.env.NODE_ENV !== 'production';
 module.exports =  {
   mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   context: path.join(__dirname, '../src'),
-  mode: 'none',
   entry: './main.js',
   plugins: [
     new CleanWebpackPlugin(['dist']),
