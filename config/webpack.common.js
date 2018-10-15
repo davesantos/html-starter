@@ -2,8 +2,10 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports =  {
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   context: path.join(__dirname, '../src'),
   mode: 'none',
   entry: './main.js',
@@ -19,8 +21,8 @@ module.exports =  {
       template: './index.pug'
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].[hash:5].css",
-      chunkFilename: "[id].css"
+      filename: devMode ? '[name].css' : '[name].[hash:5].css',
+      chunkFilename: devMode ? '[id].css' : '[id].[hash:5].css',
     })
   ],
   module: {

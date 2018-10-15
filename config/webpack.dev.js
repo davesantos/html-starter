@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = Merge(CommonConfig, {
   mode: 'development',
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].[hash:5].js'
   },
   devServer: {
