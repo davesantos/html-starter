@@ -4,8 +4,8 @@ const path = require('path');
 
 module.exports = Merge(CommonConfig, {
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[hash:5].js'
+    path: path.resolve('dist'),
+    filename: '[name].js'
   },
   devServer: {
     // contentBase: path.join(__dirname, 'js')
