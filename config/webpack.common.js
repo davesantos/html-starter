@@ -20,9 +20,13 @@ module.exports =  {
       template: './index.pug'
     }),
     new MiniCssExtractPlugin({
-      filename: devMode ? '[name].css' : '[name].[hash:5].css',
-      chunkFilename: devMode ? '[id].css' : '[id].[hash:5].css',
+      filename: "[name].css",
+      chunkFilename: "[id].css"
     })
+    // new MiniCssExtractPlugin({
+    //   filename: devMode ? '[name].css' : '[name].[hash:5].css',
+    //   chunkFilename: devMode ? '[id].css' : '[id].[hash:5].css',
+    // })
   ],
   module: {
     rules: [
