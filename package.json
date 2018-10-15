@@ -24,9 +24,9 @@
     "url": "https://github.com/davesantos/html-starter.git"
   },
   "scripts": {
-    "start": "node_modules/.bin/webpack-dev-server",
+    "start": "webpack-dev-server --env=dev",
     "dev": "webpack --env=dev --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --env=prod --mode production"
   },
   "dependencies": {
     "normalize.css": "^8.0.0"
