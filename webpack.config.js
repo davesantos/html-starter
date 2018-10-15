@@ -20,12 +20,12 @@ module.exports =  {
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       title: 'Webpack Starter',
-      // minify: {
-      //   collapseWhitespace: true,
-      //   preserveLineBreaks: true
-      // },
+      minify: {
+        collapseWhitespace: true,
+        preserveLineBreaks: true
+      },
       hash: true,
-      template: './index.html'
+      template: './index.pug'
     }),
     new MiniCssExtractPlugin({
       filename: "[name].css",
@@ -48,7 +48,19 @@ module.exports =  {
           "css-loader",
           "sass-loader"
        ]
+      },
+      {
+        test: /\.pug$/,
+        use: [
+          'html-loader',
+          {
+            loader: 'pug-html-loader',
+            options: {
+              pretty: true
+            }
+          }
+        ]
       }
     ]
   }
-};``
+};

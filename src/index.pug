@@ -4,9 +4,16 @@ html(lang="en")
     meta(charset="utf-8")
     meta(http-equiv="x-ua-compatible",content="ie=edge",shrink-to-fit="no")
     meta(name="viewport",content="width=device-width,initial-scale=1")
-    title Boilerplate
-    link(rel='stylesheet', href='css/all.css')
+    title= pageTitle
+    script(type='text/javascript').
+      if (foo) bar(1 + 5)
   body
-    h1 Hello World
-
-  script(src="js/all.js")
+    h1 Pug - node template engine
+    #container.col
+      if youAreUsingPug
+        p You are amazing
+      else
+        p Get on it!
+      p.
+        Pug is a terse and simple templating language with a
+        strong focus on performance and powerful features.

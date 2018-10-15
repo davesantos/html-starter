@@ -3,6 +3,5 @@ node_js:
   - "iojs"
   - "9.11.1"
 before_script:
-  - npm install -g gulp-cli
   - npm install
-script: gulp travis
+script: npm run build
