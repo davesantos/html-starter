@@ -10,7 +10,7 @@ module.exports =  {
   entry: './main.js',
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].bundle.js'
+    filename: '[name].[hash:5].js'
   },
   devServer: {
     // contentBase: path.join(__dirname, 'js')
@@ -42,7 +42,7 @@ module.exports =  {
             options: {
               // you can specify a publicPath here
               // by default it use publicPath in webpackOptions.output
-              publicPath: '../'
+              // publicPath: '../'
             }
           },
           "css-loader",
