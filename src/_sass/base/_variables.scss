@@ -1,32 +1,5 @@
-// Bourbon (Overwrite global Bourbon)
-$bourbon: (
-  "modular-scale-ratio": 1.067
-);
 $colors: (
   anchor:      #f00,
   background:  transparent,
   text:        #000
 );
-$breakpoints: (
-  mobile    : 481px,
-  tablet    : 768px,
-  desktop   : 1030px,
-  large     : 1240px
-);
-$rootsizes: (
-  mobile  :   modular-scale(1),
-  tablet  :   modular-scale(2),
-  desktop :   modular-scale(3),
-  large   :   modular-scale(5)
-);
-$lineheights: (
-  leading-1 :   modular-scale(5),
-  leading-2 :   modular-scale(5),
-  leading-3 :   modular-scale(6),
-  leading-4 :   modular-scale(6)
-);
-
-$sizes:   map-values($rootsizes);
-$points:  map-values($breakpoints);
-$leadings : map-values($lineheights);
-$breakpoints_total: length($breakpoints);
