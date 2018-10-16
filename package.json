@@ -3,6 +3,7 @@
   "author": "Dave Santos <info@davesantos.com> (https://davesantos.com)",
   "description": "",
   "devDependencies": {
+    "@babel/core": "^7.1.2",
     "babel-loader": "^8.0.4",
     "clean-webpack-plugin": "^0.1.19",
     "cross-env": "^5.2.0",
