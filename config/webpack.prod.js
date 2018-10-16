@@ -6,9 +6,5 @@ module.exports = Merge(CommonConfig, {
   output: {
     path: path.resolve('dist'),
     filename: '[name].[hash:5].js'
-  },
-  devServer: {
-    // contentBase: path.join(__dirname, 'js')
-    stats: 'errors-only'
   }
 });
