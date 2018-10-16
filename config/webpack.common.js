@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const devMode = process.env.NODE_ENV !== 'production';
+const postcssConfig = require('./postcss.config.js');
 
 let cleanOptions = {
   allowExternal: true
@@ -35,7 +36,14 @@ module.exports =  {
         use: [
           devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
-          // 'postcss-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              config: {
+                path: './config/'
+              }
+            }
+          },
           'sass-loader',
         ],
       },
