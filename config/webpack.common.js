@@ -36,18 +36,6 @@ module.exports =  {
     rules: [
       {
         test: /\.(sa|sc|c)ss$/,
-        // use: [
-        //   {
-        //     loader: MiniCssExtractPlugin.loader,
-        //     options: {
-        //       // you can specify a publicPath here
-        //       // by default it use publicPath in webpackOptions.output
-        //       // publicPath: '../'
-        //     }
-        //   },
-        //   "css-loader",
-        //   "sass-loader"
-        // ]
         use: [
           devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
