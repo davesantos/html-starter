@@ -17,7 +17,7 @@ Initiate local server
 npm start
 ```
 
-Compile dev or production build
+Compile _development_ or _production_ build
 
 ```sh
 npm run dev
