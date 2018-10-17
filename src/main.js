@@ -1,5 +1,5 @@
 console.log('main.js parsed');
 
-const css = require('./_sass/all.sass');
-const html = require('./index.pug');
-const js = require('./js/all.js');
+import css from './_sass/all.sass';
+import html from './index.pug';
+import js from './js/all.js';
