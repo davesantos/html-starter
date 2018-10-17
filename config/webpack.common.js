@@ -63,7 +63,26 @@ module.exports =  {
             }
           }
         ]
-      }
+      },
+      {
+        test: /\.(jpe?g|png|svg|gif|ico)$/i,
+        use:[
+          {
+            loader: 'file-loader',
+            options: {
+              // name: '[name]-[hash:6].[ext]',
+              name (file) {
+                if (devMode) {
+                  return '[path][name].[ext]'
+                }
+                return '[hash:6].[ext]'
+              },
+              outputPath: 'images/',
+              publicPath: '/assets/',
+            }
+          },
+        ]
+      },
     ]
   }
 };
