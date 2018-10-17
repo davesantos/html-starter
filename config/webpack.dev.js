@@ -8,7 +8,8 @@ module.exports = Merge(CommonConfig, {
     filename: '[name].js'
   },
   devServer: {
-    // contentBase: path.join(__dirname, 'js')
-    stats: 'errors-only'
+    // contentBase: path.join('dist'),
+    stats: 'errors-only',
+    open: true
   }
 });
