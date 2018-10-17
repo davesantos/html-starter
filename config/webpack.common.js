@@ -68,19 +68,26 @@ module.exports =  {
         test: /\.(jpe?g|png|svg|gif|ico)$/i,
         use:[
           {
-            loader: 'file-loader',
+            loader: 'url-loader',
             options: {
-              // name: '[name]-[hash:6].[ext]',
-              name (file) {
-                if (devMode) {
-                  return '[path][name].[ext]'
-                }
-                return '[hash:6].[ext]'
-              },
-              outputPath: 'images/',
-              publicPath: '/assets/',
+                limit: 8000, // Convert images < 8kb to base64 strings
+                name: 'images/[hash]-[name].[ext]'
             }
-          },
+          }
+          // {
+          //   loader: 'file-loader',
+          //   options: {
+          //     // name: '[name]-[hash:6].[ext]',
+          //     name (file) {
+          //       if (devMode) {
+          //         return '[path][name].[ext]'
+          //       }
+          //       return '[sha512:hash:base64:7].[ext]'
+          //     },
+          //     outputPath: 'images/',
+          //     publicPath: '/assets/',
+          //   }
+          // },
         ]
       },
     ]
