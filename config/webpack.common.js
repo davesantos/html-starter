@@ -36,29 +36,17 @@ module.exports =  {
         use: [{
           loader: 'file-loader',
           options: {
-            name: '[name].[ext]',
+            name () {
+              if (devMode) {
+                return '[name].[ext]?[hash:4]';
+              }
+              return '[name]-[sha512:hash:base64:6].[ext]';
+            },
             outputPath: 'fonts/',
-            publicPath: '/assets/'
+            publicPath: '/fonts/'
           },
         }]
-
-        // use: [{
-        //   loader: 'file-loader',
-        //   options: {
-        //     name () {
-        //       if (devMode) {
-        //         return '[name].[ext]?[hash:4]';
-        //       }
-        //       return '[name]-[sha512:hash:base64:6].[ext]';
-        //     },
-        //     // outputPath: 'fonts/',
-        //     publicPath: '/fonts/',
-        //   }
-        // }],
-
-
       },
-
       {
         test: /\.js$/,
         loader: 'babel-loader',
