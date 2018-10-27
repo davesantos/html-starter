@@ -25,12 +25,39 @@ module.exports =  {
       template: './index.pug'
     }),
     new MiniCssExtractPlugin({
-      filename: devMode ? '[name].css' : '[name].[hash:5].css',
-      chunkFilename: devMode ? '[id].css' : '[id].[hash:5].css',
+      filename: devMode ? '[name].css' : '[name].[hash:6].css',
+      chunkFilename: devMode ? '[id].css' : '[id].[hash:6].css',
     })
   ],
   module: {
     rules: [
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'fonts/'
+          },
+        }]
+
+        // use: [{
+        //   loader: 'file-loader',
+        //   options: {
+        //     name () {
+        //       if (devMode) {
+        //         return '[name].[ext]?[hash:4]';
+        //       }
+        //       return '[name]-[sha512:hash:base64:6].[ext]';
+        //     },
+        //     // outputPath: 'fonts/',
+        //     publicPath: '/fonts/',
+        //   }
+        // }],
+
+
+      },
+
       {
         test: /\.js$/,
         loader: 'babel-loader',
