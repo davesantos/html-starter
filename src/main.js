@@ -7,7 +7,7 @@ import js from './js/all.js';
 // var theImg = document.getElementById('home');
 // theImg.src = customImg;
 
-const allImages = require.context("./images", true, /^\.\/.*\.(jpe?g|png|gif)$/);
+var allImages = require.context("./images", true, /^\.\/.*\.(jpe?g|png|gif)$/);
 allImages.keys().map(allImages);
 console.log(allImages);
 
