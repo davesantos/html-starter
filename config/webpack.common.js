@@ -91,14 +91,18 @@ module.exports =  {
       //   ]
       // },
       {
-       test: /\.(jpe?g|png|gif|ico)$/i,
-       use:[
-         {
-            loader: 'file-loader',
+        test: /\.(jpe?g|png|gif|ico)$/i,
+        use: [
+          {
+            loader: 'url-loader',
             options: {
-              name: '[name]-[sha512:hash:base64:7].[ext]',
-              outputPath: 'images/',
-              publicPath: '/images/',
+              name () {
+                if (devMode) {
+                  return '[name].[ext]?[hash:4]';
+                }
+                return '[name]-[sha512:hash:base64:6].[ext]';
+              },
+              limit: 50000
             }
           },
         ]
