@@ -64,32 +64,6 @@ module.exports =  {
           }
         ]
       },
-      // {
-      //   test: /\.(jpe?g|png|svg|gif|ico)$/i,
-      //   use:[
-      //     // {
-      //     //   loader: 'url-loader',
-      //     //   options: {
-      //     //       limit: 8192, // Convert images < 8kb to base64 strings
-      //     //       name: 'assets/[sha512:hash:base64:7]-[name].[ext]'
-      //     //   }
-      //     // }
-      //     {
-      //       loader: 'file-loader',
-      //       options: {
-      //         // name: '[name]-[hash:6].[ext]',
-      //         name (file) {
-      //           if (devMode) {
-      //             return '[name].[ext]'
-      //           }
-      //           return '[sha512:hash:base64:7].[ext]'
-      //         },
-      //         outputPath: 'assets/',
-      //         publicPath: '/assets/',
-      //       }
-      //     },
-      //   ]
-      // },
       {
         test: /\.(jpe?g|png|gif|ico)$/i,
         use: [
@@ -102,7 +76,7 @@ module.exports =  {
                 }
                 return '[path][name]-[sha512:hash:base64:6].[ext]';
               },
-              limit: 50000
+              limit: 8192
             }
           },
         ]
