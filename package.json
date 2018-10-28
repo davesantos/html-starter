@@ -37,7 +37,7 @@
     "url": "https://github.com/davesantos/html-starter.git"
   },
   "scripts": {
-    "start": "webpack-dev-server --env=dev",
+    "start": "webpack-dev-server --env=dev --host 0.0.0.0",
     "dev": "webpack --env=dev --mode development",
     "production": "cross-env NODE_ENV=production webpack --env=prod --mode production"
   },
