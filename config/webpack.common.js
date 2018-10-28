@@ -86,21 +86,21 @@ module.exports =  {
           {
             loader: 'url-loader',
             options: {
-                limit: 8000, // Convert images < 8kb to base64 strings
-                name: 'images/[hash]-[name].[ext]'
+                limit: 8192, // Convert images < 8kb to base64 strings
+                name: 'images/[sha512:hash:base64:7]-[name].[ext]'
             }
           }
           // {
           //   loader: 'file-loader',
           //   options: {
-          //     // name: '[name]-[hash:6].[ext]',
-          //     name (file) {
-          //       if (devMode) {
-          //         return '[path][name].[ext]'
-          //       }
-          //       return '[sha512:hash:base64:7].[ext]'
-          //     },
-          //     outputPath: 'images/',
+          //     name: '[name]-[hash:6].[ext]',
+          //     // name (file) {
+          //     //   if (devMode) {
+          //     //     return '[path][name].[ext]'
+          //     //   }
+          //     //   return '[sha512:hash:base64:7].[ext]'
+          //     // },
+          //     outputPath: 'assets/',
           //     publicPath: '/assets/',
           //   }
           // },
