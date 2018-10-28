@@ -3,11 +3,11 @@ console.log('main.js parsed');
 import css from './_sass/all.sass';
 import html from './index.pug';
 import js from './js/all.js';
-// import customImg from './assets/vessel.png'
+// import customImg from './assets/sinatra.jpg'
 // var theImg = document.getElementById('home');
 // theImg.src = customImg;
 
-const allImages = require.context("./assets", true, /^\.\/.*\.(jpe?g|png|gif)$/);
+const allImages = require.context("./images", true, /^\.\/.*\.(jpe?g|png|gif)$/);
 allImages.keys().map(allImages);
 console.log(allImages);
 

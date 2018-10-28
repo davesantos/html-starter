@@ -32,22 +32,6 @@ module.exports =  {
   module: {
     rules: [
       {
-        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            name () {
-              if (devMode) {
-                return '[name].[ext]?[hash:4]';
-              }
-              return '[name]-[sha512:hash:base64:6].[ext]';
-            },
-            outputPath: 'fonts/',
-            publicPath: '/fonts/'
-          },
-        }]
-      },
-      {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/
@@ -80,32 +64,61 @@ module.exports =  {
           }
         ]
       },
+      // {
+      //   test: /\.(jpe?g|png|svg|gif|ico)$/i,
+      //   use:[
+      //     // {
+      //     //   loader: 'url-loader',
+      //     //   options: {
+      //     //       limit: 8192, // Convert images < 8kb to base64 strings
+      //     //       name: 'assets/[sha512:hash:base64:7]-[name].[ext]'
+      //     //   }
+      //     // }
+      //     {
+      //       loader: 'file-loader',
+      //       options: {
+      //         // name: '[name]-[hash:6].[ext]',
+      //         name (file) {
+      //           if (devMode) {
+      //             return '[name].[ext]'
+      //           }
+      //           return '[sha512:hash:base64:7].[ext]'
+      //         },
+      //         outputPath: 'assets/',
+      //         publicPath: '/assets/',
+      //       }
+      //     },
+      //   ]
+      // },
       {
-        test: /\.(jpe?g|png|svg|gif|ico)$/i,
-        use:[
-          {
-            loader: 'url-loader',
+       test: /\.(jpe?g|png|gif|ico)$/i,
+       use:[
+         {
+            loader: 'file-loader',
             options: {
-                limit: 8192, // Convert images < 8kb to base64 strings
-                name: 'images/[sha512:hash:base64:7]-[name].[ext]'
+              name: '[name]-[sha512:hash:base64:7].[ext]',
+              outputPath: 'images/',
+              publicPath: '/images/',
             }
-          }
-          // {
-          //   loader: 'file-loader',
-          //   options: {
-          //     name: '[name]-[hash:6].[ext]',
-          //     // name (file) {
-          //     //   if (devMode) {
-          //     //     return '[path][name].[ext]'
-          //     //   }
-          //     //   return '[sha512:hash:base64:7].[ext]'
-          //     // },
-          //     outputPath: 'assets/',
-          //     publicPath: '/assets/',
-          //   }
-          // },
+          },
         ]
       },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name () {
+              if (devMode) {
+                return '[name].[ext]?[hash:4]';
+              }
+              return '[name]-[sha512:hash:base64:6].[ext]';
+            },
+            outputPath: 'fonts/',
+            publicPath: '/fonts/'
+          },
+        }]
+      }
     ]
   }
 };
