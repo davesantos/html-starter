@@ -98,9 +98,9 @@ module.exports =  {
             options: {
               name () {
                 if (devMode) {
-                  return '[name].[ext]?[hash:4]';
+                  return '[path][name].[ext]?[hash:4]';
                 }
-                return '[name]-[sha512:hash:base64:6].[ext]';
+                return '[path][name]-[sha512:hash:base64:6].[ext]';
               },
               limit: 50000
             }
