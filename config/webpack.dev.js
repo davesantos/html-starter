@@ -8,6 +8,7 @@ module.exports = Merge(CommonConfig, {
     filename: '[name].js'
   },
   devServer: {
+    host: '0.0.0.0',
     // contentBase: path.join('dist'),
     stats: 'errors-only',
     open: true
