@@ -11,16 +11,15 @@ import del from 'del';
 
 const paths = {
   dest: 'dist',
+  js: 'src/js',
   source: 'src',
   sass: 'src/_sass',
-  css: 'dist/css'
+  css: 'dist/css',
 };
 
 const configFiles = [
-  'CNAME',
-  '.surgeignore',
-  'src/js/*',
-  'src/js/.*'
+  'src/CNAME',
+  'src/.surgeignore',
 ]
 
 const errorHandler = error => {
@@ -66,7 +65,12 @@ gulp.task('indent', () => {
     .pipe(gulp.dest('.'));
 });
 
-gulp.task('js', () => {
+gulp.task('js', done => {
+  return gulp.src(paths.js)
+  .pipe(gulp.dest(paths.dest))
+});
+
+gulp.task('copy', done => {
   return gulp.src(configFiles, { dot: true, allowEmpty: true })
   .pipe(gulp.dest(paths.dest));
 });
@@ -76,9 +80,9 @@ gulp.task('clean', done => {
   done();
 });
 
-gulp.task('build', gulp.series(gulp.parallel('pug', 'sass','js')));
+gulp.task('build', gulp.series(gulp.parallel('pug', 'sass','js', 'copy')));
 
-gulp.task('serve', gulp.series(gulp.parallel('sass', 'pug', 'js'), () =>  {
+gulp.task('serve', gulp.series(gulp.parallel('sass', 'pug', 'js', 'copy'), () =>  {
   browserSync.init({
     server: {
       baseDir: paths.dest
