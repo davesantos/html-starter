@@ -11,11 +11,15 @@ import del from 'del';
 
 const paths = {
   dest: 'dist',
-  js: 'src/js',
+  scripts: ['js'],
   source: 'src',
-  sass: 'src/_sass',
+  sass: ['src/_sass'],
   css: 'dist/css',
 };
+
+const jsFiles = [
+  'src/js/**/*.js'
+]
 
 const configFiles = [
   'src/CNAME',
@@ -66,8 +70,8 @@ gulp.task('indent', () => {
 });
 
 gulp.task('js', done => {
-  return gulp.src(paths.js)
-  .pipe(gulp.dest(paths.dest))
+  return gulp.src(jsFiles)
+  .pipe(gulp.dest(paths.dest + '/' + paths.scripts))
 });
 
 gulp.task('copy', done => {
