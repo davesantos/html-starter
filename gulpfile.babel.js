@@ -10,11 +10,11 @@ import prettify from 'gulp-prettify';
 import del from 'del';
 
 const paths = {
-  dest: 'dist',
+  dest: 'public',
   scripts: ['js'],
   source: 'src',
   sass: ['src/_sass'],
-  css: 'dist/css',
+  css: 'public/css',
 };
 
 const jsFiles = [
@@ -80,7 +80,7 @@ gulp.task('copy', done => {
 });
 
 gulp.task('clean', done => {
-  del(['dist']);
+  del(['public']);
   done();
 });
 
