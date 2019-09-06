@@ -21,9 +21,10 @@ const jsFiles = [
   'src/js/**/*.js'
 ]
 
-const configFiles = [
+const assetFiles = [
   'src/CNAME',
   'src/.surgeignore',
+  'src/images/*'
 ]
 
 const errorHandler = error => {
@@ -75,12 +76,12 @@ gulp.task('js', done => {
 });
 
 gulp.task('copy', done => {
-  return gulp.src(configFiles, { dot: true, allowEmpty: true })
+  return gulp.src(assetFiles, { base: './src', dot: true, allowEmpty: true })
   .pipe(gulp.dest(paths.dest));
 });
 
 gulp.task('clean', done => {
-  del(['public']);
+  del([paths.dest]);
   done();
 });
 
