@@ -42,7 +42,7 @@
     "build": "cross-env NODE_ENV=production webpack --env=prod --mode production"
   },
   "dependencies": {
-    "acorn": "^6.3.0",
+    "acorn": "^6.4.1",
     "normalize.css": "^8.0.1"
   }
 }
